@@ -1,0 +1,21 @@
+syntax = "proto2";
+
+package BCS;
+
+
+message Chain{
+    message Transaction{
+        required string fromaddress = 1;
+        required string toaddress = 2;
+        required double amount = 3;
+        required string hash = 4;
+    }
+
+    message Block {
+        repeated Transaction transactions = 1;
+        required string prevhash = 2;
+        required string txroot = 3;
+    }
+
+    repeated Block blocks = 1;
+}
